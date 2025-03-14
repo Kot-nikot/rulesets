@@ -1,44 +1,44 @@
-name: Compile SRS rule-sets adguard
+name: Compile SRS rule-sets from adguard
 on:
-push:
-paths:
-- "url/list_url"
-workflow_dispatch:
+  push:
+    paths:
+      - "url/list_url"
+  workflow_dispatch:
 
 permissions:
-contents: write
+  contents: write
 
 jobs:
-compile:
-runs-on: ubuntu-latest
-steps:
-- uses: actions/checkout@v4
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
 
-- name: Install sing-box
-  run: |
-    bash <(curl -fsSL https://sing-box.app/deb-install.sh)
+      - name: Install sing-box
+        run: |
+          bash <(curl -fsSL https://sing-box.app/deb-install.sh)
 
-- name: Create output directory
-  run: mkdir -p srs
+      - name: Create output directory
+        run: mkdir -p srs
 
-- name: Download files
-  run: |
-    while IFS= read -r url; do
-      filename=$(basename "$url")
-      curl -o "srs/$filename" "$url"
-    done < url/list_url
+      - name: Download files
+        run: |
+          while IFS= read -r url; do
+          filename=$(basename "$url")
+          curl -o "srs/$filename" "$url"
+          done < url/list_url
 
-- name: Convert downloaded files to SRS
-  run: |
-    for file in srs/*.txt; do
-      filename=$(basename "$file" .txt)
-      sing-box rule-set convert --type adguard --output "srs/${filename}.srs" "$file"
-    done
+      - name: Convert downloaded files to SRS
+        run: |
+         for file in srs/*.txt; do
+         filename=$(basename "$file" .txt)
+         sing-box rule-set convert --type adguard --output "srs/${filename}.srs" "$file"
+         done
 
-- name: Commit and push changes
-  run: |
-    git config --local user.email "github-actions[bot]@users.noreply.github.com"
-    git config --local user.name "github-actions[bot]"
-    git add srs/*.srs
-    git commit -m "chore: auto-convert downloaded files to SRS files" || exit 0
-    git push
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add srs/*.srs
+          git commit -m "chore: auto-convert downloaded files to SRS files" || exit 0
+          git push
