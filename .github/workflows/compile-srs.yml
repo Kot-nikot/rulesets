@@ -24,10 +24,10 @@ jobs:
       - name: Download files
         run: |
           while IFS= read -r url; do
-          filename=$(basename "$url")
+          #filename=$(basename "$url")
           #curl -o "srs/$filename" "$url"
-          wget -q -O "srs/$filename" "$url"
-          done < url/list_url
+          wget -q -O "srs/blocklist.txt https://github.com/ppfeufer/adguard-filter-list/raw/refs/heads/master/blocklist"
+          done #< url/list_url
 
       - name: Convert downloaded files to SRS
         run: |
