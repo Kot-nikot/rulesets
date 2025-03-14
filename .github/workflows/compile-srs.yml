@@ -23,7 +23,7 @@ jobs:
 
       - name: Download files
         run: |
-          bash <(wget -q -O blocklist.txt https://github.com/ppfeufer/adguard-filter-list/raw/refs/heads/master/blocklist)
+          bash <(wget -q -O srs/blocklist.txt https://github.com/ppfeufer/adguard-filter-list/raw/refs/heads/master/blocklist)
 
       - name: Convert downloaded files to SRS
         run: |
