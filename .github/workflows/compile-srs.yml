@@ -25,7 +25,8 @@ jobs:
         run: |
           while IFS= read -r url; do
           filename=$(basename "$url")
-          curl -o "srs/$filename" "$url"
+          #curl -o "srs/$filename" "$url"
+          wget -q -O "srs/$filename" "$url"
           done < url/list_url
 
       - name: Convert downloaded files to SRS
