@@ -24,7 +24,6 @@ jobs:
       - name: Download files
         run: |
           wget -q -O blocklist.txt https://github.com/ppfeufer/adguard-filter-list/raw/refs/heads/master/blocklist
-          done 
 
       - name: Convert downloaded files to SRS
         run: |
