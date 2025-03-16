@@ -1,8 +1,8 @@
-name: Compile SRS rule-sets from adguard
+name: Compile SRS rule-sets from JSON
 on:
   push:
     paths:
-      - "url/list_url"
+      - "json/*.json"
   workflow_dispatch:
 
 permissions:
@@ -21,21 +21,17 @@ jobs:
       - name: Create output directory
         run: mkdir -p srs
 
-      - name: Download files
+      - name: Compile JSON to SRS
         run: |
-          bash <(wget -q -O srs/blocklist.txt https://github.com/ppfeufer/adguard-filter-list/raw/refs/heads/master/blocklist)
-
-      - name: Convert downloaded files to SRS
-        run: |
-         for file in srs/*.txt; do
-         filename=$(basename "$file" .txt)
-         sing-box rule-set convert --type adguard --output "srs/${filename}.srs" "$file"
-         done
+          for file in json/*.json; do
+            filename=$(basename "$file" .json)
+            sing-box rule-set compile "$file" -o "srs/${filename}.srs"
+          done
 
       - name: Commit and push changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add srs/*.srs
-          git commit -m "chore: auto-convert downloaded files to SRS files" || exit 0
+          git commit -m "chore: auto-compile rule-sets from JSON to SRS files" || exit 0
           git push
