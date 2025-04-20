@@ -1,0 +1,16 @@
+{
+   "version":2,
+   "rules":[
+      {
+         "domain":[
+            "ru.ibs.lgappstv.com",
+            "ru.info.lgsmartad.com",
+            "ru.tvsdp.lgeapi.com",
+            "ru.lgrecommends.lgappstv.com"
+         ],
+         "domain_suffix":[
+            "lgtvsdp.com"
+         ]
+      }
+   ]
+}
