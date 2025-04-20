@@ -1,6 +1,11 @@
 {
   "version": 2,
   "rules": [
+        {
+      "domain": [
+        "engage.cloudflareclient.com"
+      ]
+    },
     {
       "ip_cidr": [
         "103.21.244.0/22",
