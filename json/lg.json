@@ -6,9 +6,20 @@
             "ru.ibs.lgappstv.com",
             "ru.info.lgsmartad.com",
             "ru.tvsdp.lgeapi.com",
-            "ru.lgrecommends.lgappstv.com"
+            "ru.lgrecommends.lgappstv.com",
+            "RU.lgtvsdp.com",
+            "RU.ibs.lgappstv.com",
+            "RUC.sports.lgtviot.com",
+            "RU.sports.lgtviot.com",
+            "lgtvonline.lge.com",
+            "ngfts.lge.com",
+            "snu.lge.com",
+            "eic-ngfts.lge.com",
+            "ru.rdx2.lgtvsdp.com"
          ],
          "domain_suffix":[
+            "lgsmartad.com",
+            "lgtvcommon.com",
             "lgtvsdp.com"
          ]
       }
