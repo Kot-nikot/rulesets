@@ -17,7 +17,8 @@
             "o.pki.goog"
          ],
          "domain_suffix":[
-            "googleapis.com"
+            "googleapis.com",
+            "cerebras.ai"
          ]
       }
    ]
