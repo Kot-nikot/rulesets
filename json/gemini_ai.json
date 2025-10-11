@@ -5,12 +5,8 @@
          "domain":[
             "gemini.google.com",
             "aistudio.google.com",
-            "generativelanguage.googleapis.com",
             "alkalimakersuite-pa.clients6.google.com",
             "notebooklm.google",
-            "android.googleapis.com",
-            "proactivebackend-pa.googleapis.com",
-            "assistant-s3-pa.googleapis.com",
             "notebooklm.google.com",
             "ai.google.dev",
             "labs.google",
