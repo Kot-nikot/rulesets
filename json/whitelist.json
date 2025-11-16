@@ -43,6 +43,7 @@
                ],
             "domain": [
                 "www.cikrf.ru",
+                "api.vk.com",
                 "s.vtb.ru",
                 "receive-sentry.lmru.tech",
                 "ws-api.oneme.ru",
