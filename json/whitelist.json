@@ -3,6 +3,7 @@
     "rules": [
         {
             "domain_suffix": [
+                "drive2.ru",
                 "userapi.com",
                 "yandex.ru",
                 "mail.ru",
